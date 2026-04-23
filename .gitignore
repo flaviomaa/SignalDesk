@@ -59,3 +59,7 @@ scraper/brrr.html
 # Backup / duplicate files
 * - Kopie.py
 *- Kopie.py
+
+brr.bat
+scraper/seen.db
+scraper/aiact_all_articles.json
