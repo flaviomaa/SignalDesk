@@ -1,0 +1,418 @@
+Titel: CELEX:22025D0765: Beschluss des Gemeinsamen EWR-Ausschusses Nr. 41/2025 vom 20. Februar 2025 zur Änderung von Anhang IX (Finanzdienstleistungen) des EWR-Abkommens [2025/765]
+Link: https://eur-lex.europa.eu/./legal-content/AUTO/?uri=CELEX:22025D0765
+Datum: Thu, 08 May 2025 00:00:00 +0200
+
+Do you want to help improving EUR-Lex ? This is a list of experimental features that you can enable. These features are still under development; they are not fully tested, and might reduce EUR-Lex stability. Don't forget to give your feedback!
+This document is an excerpt from the EUR-Lex website
+EU law
+EU case-law
+Official Journal
+National law and case-law
+Information
+Document 22025D0765
+Decision of the EEA Joint Committee No 41/2025 of 20 February 2025 amending Annex IX (Financial services) to the EEA Agreement [2025/765]
+Decision of the EEA Joint Committee No 41/2025 of 20 February 2025 amending Annex IX (Financial services) to the EEA Agreement [2025/765]
+Decision of the EEA Joint Committee No 41/2025 of 20 February 2025 amending Annex IX (Financial services) to the EEA Agreement [2025/765]
+OJ L, 2025/765,  8.5.2025, ELI:http://data.europa.eu/eli/dec/2025/765/oj(BG, ES, CS, DA, DE, ET, EL, EN, FR, GA, HR, IT, LV, LT, HU, MT, NL, PL, PT, RO, SK, SL, FI, SV)
+ELI:http://data.europa.eu/eli/dec/2025/765/oj
+Languages, formats and authentic version
+Multilingual display
+Text
+Official Journalof the European Union
+EN
+L series
+2025/765
+8.5.2025
+DECISION OF THE EEA JOINT COMMITTEE No 41/2025
+of 20 February 2025
+amending Annex IX (Financial services) to the EEA Agreement [2025/765]
+THE EEA JOINT COMMITTEE,
+Having regard to the Agreement on the European Economic Area (“the EEA Agreement”), and in particular Article 98 thereof,
+Whereas:
+(1)
+Regulation (EU) 2023/1114 of the European Parliament and of the Council of 31 May 2023 on markets in crypto-assets, and amending Regulations (EU) No 1093/2010 and (EU) No 1095/2010 and Directives 2013/36/EU and (EU) 2019/1937(1), as corrected byOJ L, 2024/90275, 2.5.2024, is to be incorporated into the EEA Agreement.
+(2)
+The EFTA States shall, when defining what countries shall be on the list of non-cooperative jurisdictions in their national legislation, take utmost account of the EU list of non-cooperative jurisdictions for tax purposes.
+(3)
+Annex IX to the EEA Agreement should therefore be amended accordingly,
+HAS ADOPTED THIS DECISION:
+Article 1
+Annex IX to the EEA Agreement shall be amended as follows:
+1.
+The following is inserted after point 31q (Regulation (EU) 2022/2554 of the European Parliament and of the Council) of Annex IX to the EEA Agreement:
+
+‘31r.32023 R 1114: Regulation (EU) 2023/1114 of the European Parliament and of the Council of 31 May 2023 on markets in crypto-assets, and amending Regulations (EU) No 1093/2010 and (EU) No 1095/2010 and Directives 2013/36/EU and (EU) 2019/1937 (OJ L 150, 9.6.2023, p. 40), as corrected byOJ L, 2024/90275, 2.5.2024.
+The provisions of the Regulation shall, for the purposes of this Agreement, be read with the following adaptations:
+(a)
+Notwithstanding the provisions of Protocol 1 to this Agreement, and unless otherwise provided for in this Agreement, the terms Member State(s) and competent authorities shall be understood to include, in addition to their meaning in the Regulation, the EFTA States and their competent authorities, respectively.
+(b)
+Unless otherwise provided for in this Agreement, the European Securities and Markets Authority (ESMA), the European Banking Authority (EBA), the European Central Bank (ECB) and the EFTA Surveillance Authority shall cooperate, exchange information and consult each other for the purposes of the Regulation, in particular prior to taking any action.
+(c)
+References to the powers of EBA under Articles 9(5) and 19 of Regulation (EU) No 1093/2010 of the European Parliament and of the Council in this Regulation shall be understood as referring, in the cases provided for in and in accordance with point 31g of this Annex, to the powers of the EFTA Surveillance Authority as regards the EFTA States.
+(d)
+References to the powers of ESMA under Articles 9(5), 17 and 19 of Regulation (EU) No 1095/2010 of the European Parliament and of the Council in this Regulation shall be understood as referring, in the cases provided for in and in accordance with point 31i of this Annex, to the powers of the EFTA Surveillance Authority as regards the EFTA States.
+(e)
+The ECB shall assist the EFTA Surveillance Authority in carrying out its tasks of issuing opinions pursuant to Articles 17(5), 20(5), 24(2), 24(3) and 25(3) and providing estimates pursuant to Article 22(5) of this Regulation. The ECB and the EFTA Surveillance Authority shall aim to agree on a common position on the content of the opinion.
+If a common position cannot be reached and the ECB disagrees with the opinion of the EFTA Surveillance Authority or the information on the estimates, it may submit a dissenting opinion to the EEA Joint Committee. In such a case, the President of the ECB or the College of the EFTA Surveillance Authority may request the Contracting Parties to refer the matter to the EEA Joint Committee, which shall deal with it in accordance with Article 111 of the EEA Agreement, which shall applymutatis mutandis. Notwithstanding this paragraph, a Contracting Party may at any time refer the matter to the EEA Joint Committee at its own initiative in accordance with Articles 5 or 111 of this Agreement.
+(f)
+Notwithstanding adaptations (k), (l), (n), (p) and (q), the ECB shall issue opinions pursuant to Articles 17(5), 20(5), 24(2), 24(3) and 25(3) and provide estimates pursuant to Article 22(5) to the competent authorities of the EEA EFTA States where the asset-referenced token references the Euro. In such cases, the EFTA Surveillance Authority shall not issue an opinion.
+(g)
+Decisions, interim decisions, requests, revocations of decisions and other measures of the EFTA Surveillance Authority under Articles 43(2), 44(3), 56(1), 57(3), 103(1), 104(1), 117, 122(1), 123(3), 124(5), 125, 130(1), 131(1), 132(1), and 137(1) shall, without undue delay, be adopted on the basis of drafts prepared by EBA or ESMA, as the case may be, at its own initiative or at the request of the EFTA Surveillance Authority.
+(h)
+When the Regulation refers to the national central banks, it shall, as regards Liechtenstein, refer to the Ministry of Finance in Liechtenstein.
+(i)
+In Articles 6, 19, 51, 67, 98, 109 and 128, the words “Union or national law” shall be replaced with “provisions of the EEA Agreement or national law”.
+(j)
+In Articles 14(1) and 34(6) and point 33 of Annex V to this Regulation, the words “the appropriate Union standards” shall be replaced with “the appropriate standards pursuant to the EEA Agreement”.
+(k)
+In Article 17(5):
+(i)
+in the first subparagraph, the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”;
+(ii)
+in the second and third subparagraphs, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(l)
+In Article 20:
+(i)
+in paragraph 4, the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”;
+(ii)
+in paragraph 5, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(m)
+In Article 21(4), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(n)
+In Article 22(5), the words “or, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(o)
+In Article 23(2), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(p)
+In Article 24(2) and (3), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(q)
+In Article 25:
+(i)
+in the first subparagraph of paragraph 3, the words “or, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”;
+(ii)
+in the second subparagraph of paragraph 3 and in paragraph 4, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(r)
+In Article 43(2), (6) and (7) the words “or, as regards asset-referenced tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(s)
+In Article 43(4), the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(t)
+In Article 43(5), the following subparagraphs shall be added:
+
+“As regards the EFTA States, where the EFTA Surveillance Authority concludes that an asset-referenced token fulfils the criteria set out in paragraph 1 in accordance with paragraph 2, EBA shall prepare a draft decision to classify the asset-referenced token as a significant asset-referenced token and notify that draft decision to the issuer of that asset-referenced token, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority, the ECB and in cases referred to in the second subparagraph of paragraph 4, to the central bank of the EEA State concerned.
+
+Issuers of such asset-referenced tokens, the competent authorities, the EFTA Surveillance Authority, the ECB and, where applicable, the central bank of the EEA State concerned shall have 20 working days from the date of notification of EBA’s draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft in the view of a decision on the part of the EFTA Surveillance Authority under paragraph 6.”.
+(u)
+In Article 43(8):
+(i)
+in the first subparagraph, the words “or, as regards significant asset-referenced tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+the following subparagraphs shall be added:
+
+“As regards the EFTA States, where the EFTA Surveillance Authority concludes that certain asset-referenced tokens no longer fulfil the criteria set out in paragraph 1 in accordance with paragraph 2, EBA shall prepare a draft decision to no longer classify the asset-referenced tokens as significant and notify that draft decision to the issuer of that asset-referenced token, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority, the ECB and in the cases referred to in second subparagraph of paragraph 4, to the central bank of the EEA State concerned.
+
+Issuers of such asset-referenced tokens, their competent authorities, the EFTA Surveillance Authority, the ECB and, where applicable, the central bank of the EEA State concerned shall have 20 working days from the date of notification of EBA’s draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft decision for the EFTA Surveillance Authority under paragraph 9.”.
+(v)
+In Article 43(9) and (10), the words “or, as regards significant asset-referenced tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(w)
+In Article 44(1), the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(x)
+In Article 44(2), the following subparagraphs shall be inserted:
+
+“As regards the EFTA States, EBA shall, within 20 working days of the notification referred to in paragraph 1 of this Article, prepare a draft decision containing its opinion based on the programme of operations whether the asset-referenced token fulfils or is likely to fulfil at least three of the criteria set out in Article 43(1) and notify that draft decision to the issuer of that asset-referenced token, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority and the central bank of the EFTA State where the applicant issuer is established, and in the cases referred to in the second subparagraph of Article 43(4), to the ECB or to the central bank of the EEA State concerned.
+
+Competent authorities of issuers of such asset-referenced tokens, the EFTA Surveillance Authority, the ECB and, where applicable, the central bank of the EEA State concerned shall have 20 working days from the date of notification of that draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft decision for the EFTA Surveillance Authority under paragraph 3.”.
+(y)
+In Article 44(3), the words “or, as regards asset-referenced tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority,” shall be inserted after the word “EBA”.
+(z)
+In Article 44(4), the words “or, as regards significant asset-referenced tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(za)
+In Article 45(4), the words “or, as regards issuers of significant asset-referenced tokens established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zb)
+In Article 56(1), (5) and (6) the words “or, as regards e-money tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zc)
+In Article 56(3), the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”.
+(zd)
+In Article 56(4), the following subparagraphs shall be added:
+
+“As regards the EFTA States, where the EFTA Surveillance Authority concludes that an e-money token fulfils the criteria set out in Article 43(1) in accordance with paragraph 1 of this Article, EBA shall prepare a draft decision to classify the e-money token as a significant e-money token and notify that draft decision to the issuer of the e-money token, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority, the ECB and, in the cases referred to in second subparagraph of paragraph 3, to the central bank of the EEA State concerned.
+
+Issuers of such e-money tokens, the competent authorities, the EFTA Surveillance Authority, the ECB and, where applicable, the central bank of the EEA State concerned shall have 20 working days from the date of notification of that draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft in the view of a decision on the part of the EFTA Surveillance Authority under paragraph 5.”.
+(ze)
+In Article 56(7), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zf)
+In Article 56(8):
+(i)
+in the first subparagraph, the words “or, as regards significant e-money tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+the following subparagraphs shall be added:
+
+“As regards the EFTA States, where the EFTA Surveillance Authority concludes that certain e-money tokens no longer meet the criteria set out in Article 43(1), in accordance with paragraph 1 of this Article, EBA shall prepare a draft decision to no longer classify the e-money token as significant and notify that draft decision to the issuer of those e-money tokens, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority, the ECB and, in the cases referred to in second subparagraph of paragraph 3, to the ECB or the central bank of the EEA State concerned.
+
+Issuers of such e-money tokens, the competent authorities, the EFTA Surveillance Authority, the ECB and the central bank of the EEA State concerned shall have 20 working days from the date of notification of EBA’s draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft in the view of a decision on the part of the EFTA Surveillance Authority under paragraph 9.”.
+(zg)
+In Article 56(9) and (10), the words “or, as regards significant e-money tokens issued by an issuer established in an EFTA State, the EFTA Surveillance Authority,” shall be inserted after the word “EBA”.
+(zh)
+In Article 57:
+(i)
+in paragraph 1, the words “and, as regards the competent authorities of the EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “ECB”;
+(ii)
+in paragraph 2, the following subparagraphs shall be inserted:
+
+“As regards the EFTA States, EBA shall, within 20 working days from the date of notification referred to in paragraph 1 of this Article, prepare a draft decision containing its opinion based on the issuer’s programme of operations whether the e-money token fulfils or is likely to fulfil at least three of the criteria set out in Article 43(1) and notify that draft decision to the issuer of that e-money token, to the competent authority of the issuer’s home EFTA State, the EFTA Surveillance Authority, the ECB and in the cases referred to in the second subparagraph of Article 56(3), to the central bank of the EEA State concerned.
+
+The competent authorities of issuers of such e-money tokens, the EFTA Surveillance Authority, the ECB and, where applicable, the central bank of the EEA State concerned shall have 20 working days from the date of notification of that draft decision to provide observations and comments in writing. EBA shall duly consider those observations before preparing a draft in the view of a decision on the part of the EFTA Surveillance Authority under paragraph 3.”;
+(iii)
+in paragraph 3, the words “or, as regards an e-money token issued by an issuer established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(iv)
+in paragraph 4, the words “or of the EFTA Surveillance Authority” shall be inserted after the words “of EBA”;
+(v)
+in paragraph 4, the words “or, as regards issuers of a significant e-money token, the EFTA Surveillance Authority” shall be inserted after the words “to EBA”;
+(vi)
+in paragraph 5, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zi)
+In Article 59(2), the second sentence shall be replaced with the following:
+
+“They shall have their place of effective management in the EEA and at least one of the directors shall be resident in the EEA or in Switzerland.”.
+(zj)
+In Article 73(1), the words “data protection standards of the Union” shall be replaced with “data protection standards pursuant to the EEA Agreement”.
+(zk)
+In Article 95:
+(i)
+in paragraph 1, the words “and the EFTA Surveillance Authority” shall be inserted after the word “ESMA”;
+(ii)
+in paragraph 4, the words “and, where a competent authority of an EFTA State is involved, the EFTA Surveillance Authority,” shall be inserted after the words “EBA and ESMA”;
+(iii)
+in paragraph 5, the words “or the EFTA Surveillance Authority, as regards inspection or investigation in an EFTA State,” shall be inserted after the words “ESMA” and “EBA”.
+(zl)
+In Article 100, the words “Union or national legislative acts” shall be replaced with the words “provisions of the EEA Agreement or national legislative acts”.
+(zm)
+In Articles 103, 104 and 105, the words “Union law” shall be replaced with the words “the EEA Agreement”.
+(zn)
+In Article 103(1) to (7), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ESMA”.
+(zo)
+In Article 104(1) to (7), the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zp)
+In Article 110:
+(i)
+in paragraph 4, the words “or, as the case may be, by the EFTA Surveillance Authority” shall be inserted after the words “own initiative”;
+(ii)
+in paragraph 5, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “ESMA”.
+(zq)
+In Article 111:
+(i)
+in paragraph 1, as regards the EFTA States, the words “by 30 June 2024” shall read “by 30 June 2025”;
+(ii)
+in paragraph 3, the words “Union law” shall be replaced with the words “provisions of the EEA Agreement”.
+(zr)
+In Article 117:
+(i)
+in the first subparagraph of paragraph 1, the words “or the EFTA Surveillance Authority, as regards significant asset-referenced tokens issued by an issuer established in an EFTA State” shall be inserted after the word “EBA”;
+(ii)
+in the second subparagraph of paragraph 1 and in paragraphs 3, 4 and 5, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zs)
+In Article 119(2):
+(i)
+the following point shall be inserted:
+“(n)
+the EFTA Surveillance Authority.”;
+(ii)
+the following subparagraph shall be inserted:
+
+“The participation of the EFTA Surveillance Authority in the colleges shall, in cases concerning issuers of significant asset-referenced tokens or of significant e-money tokens established outside of the EFTA States, be on a voluntary basis.”.
+(zt)
+In Article 120, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zu)
+In Article 121, the words “or the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zv)
+In Article 122:
+(i)
+the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+as regards the EFTA States, point (g) of paragraph 3 shall read as follows:
+
+“indicate the right to have the decision reviewed by the EFTA Court in accordance with Article 36 of the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”.
+(zw)
+In Article 123:
+(i)
+in paragraph 1, the words “or, in the case of an issuer subject to investigation established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+in paragraph 1, the following subparagraph shall be added:
+
+“Officials of and other persons authorised by EBA shall be entitled to assist the EFTA Surveillance Authority in the carrying out of its duties under this Article and have the right to participate in investigations upon EBA’s request.”;
+(iii)
+in paragraphs 2, 3, 4, 5, 6 and the first sentence of paragraph 7, as regards the EFTA States, the word “EBA” shall read “the EFTA Surveillance Authority”;
+(iv)
+the second sentence of paragraph 3, as regards the EFTA States, shall read as follows:
+
+“The decision shall specify the subject matter and purpose of the investigation, the periodic penalty payments provided for in Article 132 and the right to have the decision reviewed by the EFTA Court in accordance with Article 36 of the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”;
+(v)
+in the second sentence of paragraph 7, as regards the EFTA States, the words “EBA’s file” shall read “the file of EBA and the EFTA Surveillance Authority”;
+(vi)
+the third sentence of paragraph 7, as regards the EFTA States, shall read as follows:
+
+“The lawfulness of the EFTA Surveillance Authority’s decision shall be subject to review only by the EFTA Court in accordance with the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”.
+(zx)
+In Article 124:
+(i)
+in paragraph 1, the words “or, in the case of issuers established in EFTA States, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+in paragraph 1, the following subparagraph shall be added:
+
+“The EFTA Surveillance Authority shall without undue delay forward the information obtained under this Article to ESMA.”;
+(iii)
+in paragraphs 2 to 10 and the first sentence of paragraph 11, as regards the EFTA States, the word “EBA” shall read “the EFTA Surveillance Authority”;
+(iv)
+in paragraph 2, the following subparagraph shall be added:
+
+“Officials of and other persons authorised by EBA shall be entitled to assist the EFTA Surveillance Authority in the carrying out of its duties under this Article and have the right to participate in on-site inspections upon EBA’s request.”;
+(v)
+the second sentence of paragraph 5, as regards the EFTA States, shall read as follows:
+
+“The decision shall specify the subject matter and purpose of the inspection, specify the date on which it is to begin and indicate the periodic penalty payments provided for in Article 132 as well as the right to have the decision reviewed by the EFTA Court in accordance with Article 36 of the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”;
+(vi)
+in the second sentence of paragraph 11, as regards the EFTA States, the words “EBA’s file” shall read “the file of EBA and the EFTA Surveillance Authority”;
+(vii)
+the third sentence of paragraph 11 shall, as regards the EFTA States, read as follows:
+
+“The lawfulness of the EFTA Surveillance Authority’s decision shall be subject to review only by the EFTA Court in accordance with the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”.
+(zy)
+In Article 125:
+(i)
+the words “or, as the case may be, the EFTA Surveillance Authority’s” shall be inserted after the word “EBA’s”;
+(ii)
+the words “and the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zz)
+In Article 128, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.
+(zza)
+In Article 129:
+(i)
+the words “, the EFTA Surveillance Authority” shall be inserted after the first use of the word “EBA”;
+(ii)
+the words “, for the EFTA Surveillance Authority” shall be inserted after the second use of the word “EBA”;
+(iii)
+the words “or the EFTA Surveillance Authority” shall be inserted after the third and fourth use of the word “EBA”.
+(zzb)
+In Article 130:
+(i)
+in paragraph 1, the words “or in the case of an issuer of a significant asset-referenced token established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+in paragraph 2, the words “or in the case of an issuer of a significant e-money token established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(iii)
+in paragraph 3, as regards the EFTA States, the word “EBA” shall read as “the EFTA Surveillance Authority”;
+(iv)
+in paragraphs 4 and 5, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(v)
+in paragraph 6, the following subparagraph shall be added:
+
+“The EFTA Surveillance Authority shall notify any measure taken pursuant to paragraphs 1 and 2 to the issuer of the significant asset-referenced token or the issuer of the significant e-money token established in an EFTA State responsible for the infringement without undue delay and shall communicate that measure to the competent authorities, EBA as well as to the Commission. EBA and the EFTA Surveillance Authority shall publicly disclose any such decision on their websites within 10 working days of the date of adoption of such decision, unless such disclosure would seriously jeopardise financial stability or cause disproportionate damage to the parties involved. Such disclosure shall not contain personal data.”;
+(vi)
+in paragraph 7, the following subparagraph shall be added:
+
+“The disclosure by EBA and the EFTA Surveillance Authority to the public of decisions of the EFTA Surveillance Authority referred to in paragraph 6, shall include the following statements:
+(a)
+a statement affirming the right of the person responsible for the infringement to have the decision reviewed by the EFTA Court;
+(b)
+where relevant, a statement affirming that a review has been lodged and specifying that such a review does not have suspensive effect;
+(c)
+a statement asserting that it is possible for the EFTA Court to suspend the application of the contested decision in accordance with Article 40 of the Agreement between the EFTA States on the Establishment of a Surveillance Authority and a Court of Justice.”.
+(zzc)
+In Article 131:
+(i)
+in paragraph 1, the words “or, in the case of an issuer of a significant asset-referenced token or of a significant e-money token established in an EFTA State, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+in paragraph 2, the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the first use of the word “EBA”;
+(iii)
+in paragraph 2, the words “and, as the case may be, the EFTA Surveillance Authority” shall be inserted after the second use of the word “EBA”.
+(zzd)
+In Article 132:
+(i)
+the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+the words “or, as the case may be, the EFTA Surveillance Authority’s decision” shall be inserted after the words “EBA’s decision”.
+(zze)
+In Article 133:
+(i)
+in paragraph 1, the words “and the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+in paragraph 4, the following subparagraph shall be added:
+
+“The Standing Committee of the EFTA States shall determine the allocation of the amounts of the fines and periodic penalty payments collected by the EFTA Surveillance Authority.”;
+(iii)
+in paragraph 5, the following subparagraph shall be added:
+
+“Where the decision not to impose fines or penalty payments is taken by the EFTA Surveillance Authority, it shall inform the Standing Committee of the EFTA States and the competent authorities of the EFTA State concerned and shall set out the reasons for its decision.”.
+(zzf)
+In Article 134:
+(i)
+in paragraph 1, the following subparagraph shall be added:
+
+“Where, in carrying out its supervisory responsibilities under Article 117, there are clear and demonstrable grounds to suspect that there has been or will be an infringement as listed in Annex V or VI, the EFTA Surveillance Authority shall appoint an independent investigation officer within the EFTA Surveillance Authority to investigate the matter following consultations with EBA. The investigation officer shall not be involved or have been directly or indirectly involved in the supervision of the issuers of significant asset-referenced tokens or issuers of significant e-money tokens concerned and shall perform their functions independently from the College of the EFTA Surveillance Authority and EBA.”;
+(ii)
+in paragraphs 4, 5 and 7, as regards the EFTA States, the words “and the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(iii)
+in paragraphs 7 and 9, the words “or the EFTA Surveillance Authority’s” shall be inserted after the word “EBA’s”;
+(iv)
+in paragraph 8, as regards the EFTA States, the text after the words “Article 135,” shall read as follows:
+
+“the EFTA Surveillance Authority shall decide whether an infringement as listed in Annex V or VI has been committed by the issuer of the significant asset-referenced token or the issuer of the significant e-money token subject to the investigation and, in such a case, shall take a supervisory measure in accordance with Article 130 or impose a fine in accordance with Article 131.
+
+The EFTA Surveillance Authority shall provide EBA with all information and files necessary for the performance of its obligation under this paragraph.”;
+(v)
+in paragraph 11, as regards the EFTA States, the word “EBA” shall read “the EFTA Surveillance Authority”.
+(zzg)
+In Article 135:
+(i)
+in paragraph 1, the following subparagraphs shall be added:
+
+“Before preparing any draft for the EFTA Surveillance Authority under Article 130, 131 or 132, EBA shall give the persons subject to an investigation the opportunity to be heard on its findings. EBA shall base its drafts only on findings on which the persons subject to such investigation have had an opportunity to comment.
+
+The EFTA Surveillance Authority shall base its decisions under Article 130, 131 or 132 only on findings on which the persons subject to the proceedings have had the opportunity to comment.”;
+(ii)
+in paragraph 2, the following subparagraph shall be added:
+
+“The second and third subparagraphs of paragraph 1 shall not apply if urgent action is needed in order to prevent significant and imminent damage to financial stability or to the holders of crypto-assets, in particular retail holders. In such a case, the EFTA Surveillance Authority may adopt an interim decision, and the persons concerned shall be given the opportunity to be heard as soon as possible after the decision is taken.”;
+(iii)
+in paragraph 3, the words “EBA’s file” shall be replaced with the words “the file of EBA and the EFTA Surveillance Authority”;
+(iv)
+in paragraph 3, the words “EBA’s internal preparatory documents” shall be replaced with the words “the internal preparatory documents of EBA and the EFTA Surveillance Authority”.
+(zzh)
+In Article 137(1), the following subparagraphs shall be added:
+
+“As regards issuers of significant asset-referenced tokens and issuers of significant e-money tokens established in an EFTA State, fees shall be charged by the EFTA Surveillance Authority on the same basis as fees charged to other issuers of significant asset-referenced tokens and issuers of significant e-money tokens in accordance with this Regulation and with the Commission delegated act referred to in paragraph 3.
+
+The amounts collected by the EFTA Surveillance Authority in accordance with this paragraph shall be passed on to EBA without undue delay.”.
+(zzi)
+In Article 138:
+(i)
+the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”;
+(ii)
+the following paragraph shall be added:
+“5.
+Prior to the delegation of a task, the EFTA Surveillance Authority and EBA shall consult each other.”.
+(zzj)
+In Article 149:
+(i)
+in paragraph 1, the words “or on a date designated under national law no later than 12 months after the date of entry into force of Decision of the EEA Joint Committee No 41/2025 of 20 February 2025” shall be inserted after the word “Union”;
+(ii)
+in paragraph 2, the words “30 December 2024” shall read “the date of entry into force of Decision of the EEA Joint Committee No 41/2025 of 20 February 2025 or a date designated under national law no later than 12 months after the date of entry into force of Decision of the EEA Joint Committee No 41/2025 of 20 February 2025”;
+(iii)
+paragraphs 3 and 4 shall, as regards the EFTA States, not apply.
+(zzk)
+In point 76 of Annex V and point 35 of Annex VI the words “or, as the case may be, the EFTA Surveillance Authority” shall be inserted after the word “EBA”.’
+2.
+The following indent is added to points 14 (Directive 2013/36/EU of the European Parliament and of the Council), 31g (Regulation (EU) No 1093/2010 of the European Parliament and of the Council) and 31i (Regulation (EU) No 1095/2010 of the European Parliament and of the Council) of Annex IX to the EEA Agreement:
+‘—
+32023 R 1114: Regulation (EU) 2023/1114 of the European Parliament and of the Council of 31 May 2023 (OJ L 150, 9.6.2023, p. 40), as corrected byOJ L, 2024/90275, 2.5.2024.’
+Article 2
+The text of Regulation (EU) 2023/1114, as corrected byOJ L, 2024/90275, 2.5.2024, in the Icelandic and Norwegian languages, to be published in the EEA Supplement to theOfficial Journal of the European Union, shall be authentic.
+Article 3
+This Decision shall enter into force on the fourteenth day following the last notification under Article 103(1) of the EEA Agreement(*1).
+Article 4
+This Decision shall be published in the EEA Section of, and in the EEA Supplement to, theOfficial Journal of the European Union.
+Done at Brussels, 20 February 2025.
+For the EEA Joint Committee
+The President
+Nicolas VON LINGEN
+(1)OJ L 150, 9.6.2023, p. 40.
+(*1)Constitutional requirements indicated.
+ELI: http://data.europa.eu/eli/dec/2025/765/oj
+ISSN 1977-0677 (electronic edition)

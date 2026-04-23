@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+output/
+*.db
+*.log
+temp.pdf
+aiact_all_articles.json
+scraper_results_export_*.txt
