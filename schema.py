@@ -1,17 +1,164 @@
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from typing import Optional
 
 
+SOURCE_ALIAS_MAP = {
+    "bsi-cert": "BSI-CERT",
+    "bsi cert": "BSI-CERT",
+    "bsi": "BSI-CERT",
+    "bmj": "BMJ",
+    "edpb": "EDPB",
+    "edps": "EDPS",
+    "enisa": "ENISA",
+    "baylda": "BayLDA",
+    "eurlex": "EUR-Lex",
+    "eur-lex": "EUR-Lex",
+    "ai act": "AI Act",
+    "aiact": "AI Act",
+    "artificialintelligenceact": "AI Act",
+    "the eu ai act newsletter": "AI Act",
+}
+
+SOURCE_CATEGORY_MAP = {
+    "BSI-CERT": "cybersecurity",
+    "BMJ": "law",
+    "EDPB": "privacy",
+    "EDPS": "privacy",
+    "ENISA": "cybersecurity",
+    "BayLDA": "privacy",
+    "EUR-Lex": "law",
+    "AI Act": "ai-regulation",
+}
+
+SOURCE_LANGUAGE_MAP = {
+    "BSI-CERT": "de",
+    "BMJ": "de",
+    "EDPB": "en",
+    "EDPS": "en",
+    "ENISA": "en",
+    "BayLDA": "de",
+    "EUR-Lex": "en",
+    "AI Act": "en",
+}
+
+
+def clean_text(value: Optional[str]) -> str:
+    if value is None:
+        return ""
+    return " ".join(str(value).split()).strip()
+
+
+def infer_source_from_fields(
+    source_raw: Optional[str] = None,
+    title: Optional[str] = None,
+    link: Optional[str] = None,
+    url: Optional[str] = None,
+    content: Optional[str] = None,
+) -> str:
+    candidates = [
+        clean_text(source_raw),
+        clean_text(title),
+        clean_text(link),
+        clean_text(url),
+        clean_text(content)[:500],
+    ]
+
+    for raw in candidates:
+        if not raw:
+            continue
+
+        key = raw.lower()
+
+        if key in SOURCE_ALIAS_MAP:
+            return SOURCE_ALIAS_MAP[key]
+
+        if "artificialintelligenceact" in key:
+            return "AI Act"
+        if "the eu ai act newsletter" in key:
+            return "AI Act"
+        if "eu ai act newsletter" in key:
+            return "AI Act"
+        if "future of life institute" in key and "ai act" in key:
+            return "AI Act"
+        if "substack.com" in key and "ai-act" in key:
+            return "AI Act"
+        if "substack.com" in key and "artificialintelligenceact" in key:
+            return "AI Act"
+        if "ai act" in key:
+            return "AI Act"
+        if "aiact" in key:
+            return "AI Act"
+
+    return normalize_source(source_raw)
+
+
+def normalize_source(value: Optional[str]) -> str:
+    raw = clean_text(value)
+    if not raw:
+        return "Unknown"
+
+    key = raw.lower()
+
+    if key in SOURCE_ALIAS_MAP:
+        return SOURCE_ALIAS_MAP[key]
+
+    if "artificialintelligenceact" in key:
+        return "AI Act"
+    if "the eu ai act newsletter" in key:
+        return "AI Act"
+    if "eu ai act newsletter" in key:
+        return "AI Act"
+    if "ai act" in key:
+        return "AI Act"
+    if "aiact" in key:
+        return "AI Act"
+
+    return raw
+
+
+def normalize_language(
+    source: str,
+    language_raw: Optional[str] = None,
+    title: Optional[str] = None,
+    content: Optional[str] = None,
+    link: Optional[str] = None,
+    url: Optional[str] = None,
+) -> str:
+    lang = clean_text(language_raw).lower()
+
+    if lang in {"de", "en"}:
+        return lang
+
+    joined = " ".join(
+        [
+            clean_text(title),
+            clean_text(link),
+            clean_text(url),
+            clean_text(content)[:1000],
+        ]
+    ).lower()
+
+    if source in SOURCE_LANGUAGE_MAP:
+        return SOURCE_LANGUAGE_MAP[source]
+
+    if "artificialintelligenceact" in joined:
+        return "en"
+    if "the eu ai act newsletter" in joined:
+        return "en"
+    if "substack.com" in joined and "ai-act" in joined:
+        return "en"
+
+    return "de"
+
+
 @dataclass
 class SignalDeskItem:
-    """Standardisiertes SignalDesk-Artikel-Format."""
-
     source: str
     title: str
     link: str
     date: Optional[str] = None
-    content: Optional[str] = None
+    content: str = ""
     category: Optional[str] = None
     language: str = "de"
     scraped_at: Optional[str] = None
@@ -19,133 +166,64 @@ class SignalDeskItem:
     url: Optional[str] = None
     section: Optional[str] = None
 
-    def __post_init__(self):
-        if self.scraped_at is None:
+    def __post_init__(self) -> None:
+        self.source = normalize_source(self.source)
+        self.title = clean_text(self.title)
+        self.url = clean_text(self.url) or None
+        self.link = clean_text(self.link or self.url)
+        self.date = clean_text(self.date) or None
+        self.content = clean_text(self.content)
+        self.section = clean_text(self.section) or None
+
+        if not self.scraped_at:
             self.scraped_at = datetime.now().isoformat()
-        if self.language == "en" or self.language == "de":
-            pass
-        elif self.source.lower() in ["edps", "eurlex", "enisa", "edpb"]:
-            self.language = "en"
-        else:
-            self.language = "de"
+
+        self.language = normalize_language(
+            source=self.source,
+            language_raw=self.language,
+            title=self.title,
+            content=self.content,
+            link=self.link,
+            url=self.url,
+        )
+
+        self.category = clean_text(self.category) or SOURCE_CATEGORY_MAP.get(self.source, "general")
 
     def to_dict(self) -> dict:
-        return {
-            "source": self.source,
-            "title": self.title,
-            "link": self.link or self.url,
-            "date": self.date,
-            "content": self.content,
-            "category": self.category,
-            "language": self.language,
-            "scraped_at": self.scraped_at,
-            "is_new": self.is_new,
-        }
+        data = asdict(self)
+        data["link"] = self.link or self.url or ""
+        return data
 
 
-SOURCE_CATEGORY_MAP = {
-    "BMJ": "recht",
-    "EURLEX": "recht",
-    "EUR-Lex": "recht",
-    "EDPB": "datenschutz",
-    "EDPS": "datenschutz",
-    "BayLDA": "datenschutz",
-    "LfD-Berlin": "datenschutz",
-    "LfD Berlin": "datenschutz",
-    "LfD-Hessen": "datenschutz",
-    "Hessen": "datenschutz",
-    "BSI-CERT": "cybersicherheit",
-    "BSI-Consumer": "cybersicherheit",
-    "ENISA-News": "cybersicherheit",
-    "ENISA-Publications": "cybersicherheit",
-    "ENISA": "cybersicherheit",
-    "AI-Act": "ai",
-    "AI Act": "ai",
-    "Artificial Intelligence Act": "ai",
-}
-
-SOURCE_LANGUAGE_MAP = {
-    "BMJ": "de",
-    "BayLDA": "de",
-    "LfD-Berlin": "de",
-    "LfD Berlin": "de",
-    "LfD-Hessen": "de",
-    "Hessen": "de",
-    "EURLEX": "de",
-    "EUR-Lex": "de",
-    "EDPB": "en",
-    "EDPS": "en",
-    "BSI-CERT": "de",
-    "BSI-Consumer": "de",
-    "ENISA-News": "en",
-    "ENISA-Publications": "en",
-    "ENISA": "en",
-    "AI-Act": "en",
-    "AI Act": "en",
-    "Artificial Intelligence Act": "en",
-}
-
-
-def normalize_source(source: Optional[str]) -> str:
-    if not source:
-        return "unknown"
-    s = source.strip()
-    for key, value in SOURCE_CATEGORY_MAP.items():
-        if key.lower() in s.lower():
-            return key
-    return s
-
-
-def normalize_entry(raw: dict) -> SignalDeskItem:
-    source_raw = raw.get("source", raw.get("title", ""))
-    source_clean = normalize_source(source_raw)
-
-    category = SOURCE_CATEGORY_MAP.get(source_clean, "sonstige")
-
-    language = SOURCE_LANGUAGE_MAP.get(source_clean, "de")
-    language_raw = raw.get("language", None)
-    if language_raw:
-        language = language_raw
-
-    link = raw.get("link") or raw.get("url", "")
-    date = raw.get("date") or raw.get("published", raw.get("published_at"))
-
-    content = raw.get("content", raw.get("body", raw.get("description")))
-
+def normalize_entry(raw: dict) -> dict:
     title = raw.get("title", "")
-    if not title:
-        title = raw.get("headline", "Unbenannter Eintrag")
+    link = raw.get("link") or raw.get("url", "")
+    url = raw.get("url")
+    content = raw.get("content") or raw.get("body") or raw.get("description") or ""
 
-    section = raw.get("section", None)
-
-    return SignalDeskItem(
-        source=source_clean,
+    source = infer_source_from_fields(
+        source_raw=raw.get("source"),
         title=title,
         link=link,
-        date=date,
+        url=url,
         content=content,
-        category=category,
-        language=language,
-        scraped_at=datetime.now().isoformat(),
-        is_new=raw.get("is_new", True),
-        url=link,
-        section=section,
     )
 
+    item = SignalDeskItem(
+        source=source,
+        title=title,
+        link=link,
+        date=raw.get("date") or raw.get("published"),
+        content=content,
+        category=raw.get("category"),
+        language=raw.get("language"),
+        scraped_at=raw.get("scraped_at"),
+        is_new=raw.get("is_new", True),
+        url=url,
+        section=raw.get("section"),
+    )
+    return item.to_dict()
 
-def normalize_batch(raw_list: list) -> list:
-    normalized = []
-    for raw in raw_list:
-        try:
-            normalized.append(normalize_entry(raw))
-        except Exception as e:
-            print(f"[WARNUNG] Normalisierung fehlgeschlagen: {e}")
-            continue
-    return normalized
 
-
-def save_normalized_json(items: list, output_path: str):
-    import json
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump([item.to_dict() for item in items], f, indent=2, ensure_ascii=False)
-    print(f"[OK] Normalisierte Daten gespeichert: {output_path}")
+def normalize_batch(items: list[dict]) -> list[dict]:
+    return [normalize_entry(item) for item in items]
