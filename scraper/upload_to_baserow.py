@@ -54,24 +54,82 @@ def map_item_to_baserow(item: dict, import_file: str) -> dict:
     }
 
 
-def upload_batch(rows: list[dict], debug: bool = False) -> dict:
-    url = f"{BASE_URL}/api/database/rows/table/{TABLE_ID}/batch/?user_field_names=true"
-    headers = {
+def get_headers():
+    return {
         "Authorization": f"Token {API_TOKEN}",
         "Content-Type": "application/json",
     }
+
+
+def fetch_existing_rows(debug: bool = False) -> dict[str, int]:
+    headers = get_headers()
+    existing = {}
+    next_url = f"{BASE_URL}/api/database/rows/table/{TABLE_ID}/?user_field_names=true&size=200"
+
+    while next_url:
+        response = requests.get(next_url, headers=headers, timeout=60)
+
+        if response.status_code != 200:
+            raise RuntimeError(
+                f"Baserow Read API Fehler {response.status_code}: {response.text}"
+            )
+
+        payload = response.json()
+
+        results = payload.get("results", [])
+        if debug:
+            print(f"[DEBUG] Gelesene Rows: {len(results)}")
+            print(f"[DEBUG] Next URL: {payload.get('next')}")
+
+        for row in results:
+            row_id = row.get("id")
+            ext_id = row.get("external_id")
+            if row_id and ext_id:
+                existing[str(ext_id)] = int(row_id)
+
+        next_url = payload.get("next")
+
+    return existing
+
+
+def create_batch(rows: list[dict], debug: bool = False) -> dict:
+    url = f"{BASE_URL}/api/database/rows/table/{TABLE_ID}/batch/?user_field_names=true"
+    headers = get_headers()
     payload = {"items": rows}
 
     response = requests.post(url, headers=headers, json=payload, timeout=60)
 
     if debug:
-        print("\n[DEBUG] STATUS:", response.status_code)
-        print("[DEBUG] RESPONSE:")
+        print("\n[DEBUG][CREATE] STATUS:", response.status_code)
+        print("[DEBUG][CREATE] RESPONSE:")
         print(response.text[:4000])
 
     if response.status_code not in (200, 201):
         raise RuntimeError(
-            f"Baserow API Fehler {response.status_code}: {response.text}"
+            f"Baserow Create API Fehler {response.status_code}: {response.text}"
+        )
+
+    try:
+        return response.json()
+    except Exception:
+        return {"raw_response": response.text}
+
+
+def update_batch(rows: list[dict], debug: bool = False) -> dict:
+    url = f"{BASE_URL}/api/database/rows/table/{TABLE_ID}/batch/?user_field_names=true"
+    headers = get_headers()
+    payload = {"items": rows}
+
+    response = requests.patch(url, headers=headers, json=payload, timeout=60)
+
+    if debug:
+        print("\n[DEBUG][UPDATE] STATUS:", response.status_code)
+        print("[DEBUG][UPDATE] RESPONSE:")
+        print(response.text[:4000])
+
+    if response.status_code not in (200, 201):
+        raise RuntimeError(
+            f"Baserow Update API Fehler {response.status_code}: {response.text}"
         )
 
     try:
@@ -104,7 +162,13 @@ def main():
     print(f"[INFO] Table ID: {TABLE_ID}")
     print(f"[INFO] Dateien gefunden: {len(files)}")
 
-    total_rows_sent = 0
+    print("[INFO] Lade bestehende Rows aus Baserow ...")
+    existing_rows = fetch_existing_rows(debug=DEBUG)
+    print(f"[INFO] Bereits vorhandene external_id: {len(existing_rows)}")
+
+    total_processed = 0
+    total_created = 0
+    total_updated = 0
 
     for file_path in files:
         print(f"\n[VERARBEITE] {file_path.name}")
@@ -117,37 +181,64 @@ def main():
         if TEST_MODE:
             data = data[:TEST_LIMIT]
 
-        rows = [map_item_to_baserow(item, file_path.name) for item in data]
+        rows_to_create = []
+        rows_to_update = []
 
-        if not rows:
-            print(f"[SKIP] {file_path.name} enthält keine Rows")
-            continue
+        for item in data:
+            row = map_item_to_baserow(item, file_path.name)
+            ext_id = row["external_id"]
+            total_processed += 1
 
-        print(f"[INFO] Rows vorbereitet: {len(rows)}")
+            if ext_id in existing_rows:
+                row["id"] = existing_rows[ext_id]
+                rows_to_update.append(row)
+            else:
+                rows_to_create.append(row)
 
-        if DEBUG:
-            print("[DEBUG] Erste Row, die gesendet wird:")
-            print(json.dumps(rows[0], ensure_ascii=False, indent=2)[:4000])
+        print(
+            f"[INFO] Datei {file_path.name}: "
+            f"{len(rows_to_create)} neu, {len(rows_to_update)} update"
+        )
 
-        uploaded_for_file = 0
+        if DEBUG and rows_to_create:
+            print("[DEBUG] Erste Create-Row:")
+            print(json.dumps(rows_to_create[0], ensure_ascii=False, indent=2)[:4000])
 
-        for batch_index, batch in enumerate(chunked(rows, BATCH_SIZE), start=1):
-            print(f"[UPLOAD] Batch {batch_index} mit {len(batch)} Rows")
+        if DEBUG and rows_to_update:
+            print("[DEBUG] Erste Update-Row:")
+            print(json.dumps(rows_to_update[0], ensure_ascii=False, indent=2)[:4000])
 
-            result = upload_batch(batch, debug=DEBUG)
+        for batch_index, batch in enumerate(chunked(rows_to_create, BATCH_SIZE), start=1):
+            print(f"[CREATE] Batch {batch_index} mit {len(batch)} Rows")
+            result = create_batch(batch, debug=DEBUG)
 
-            if DEBUG:
-                print("[DEBUG] Parsed JSON response:")
-                print(json.dumps(result, ensure_ascii=False, indent=2)[:4000])
+            try:
+                for created in result.get("items", []):
+                    created_id = created.get("id")
+                    created_ext = created.get("external_id")
+                    if created_id and created_ext:
+                        existing_rows[str(created_ext)] = int(created_id)
+            except Exception:
+                pass
 
-            uploaded_for_file += len(batch)
-            total_rows_sent += len(batch)
-
+            total_created += len(batch)
             time.sleep(0.3)
 
-        print(f"[OK] {file_path.name}: {uploaded_for_file} Rows gesendet")
+        for batch_index, batch in enumerate(chunked(rows_to_update, BATCH_SIZE), start=1):
+            print(f"[UPDATE] Batch {batch_index} mit {len(batch)} Rows")
+            update_batch(batch, debug=DEBUG)
+            total_updated += len(batch)
+            time.sleep(0.3)
 
-    print(f"\n[FERTIG] Insgesamt {total_rows_sent} Rows gesendet.")
+        print(
+            f"[OK] {file_path.name}: "
+            f"{len(rows_to_create)} erstellt, {len(rows_to_update)} aktualisiert"
+        )
+
+    print("\n[FERTIG]")
+    print(f"[INFO] Insgesamt verarbeitet: {total_processed}")
+    print(f"[INFO] Neu erstellt: {total_created}")
+    print(f"[INFO] Aktualisiert: {total_updated}")
 
 
 if __name__ == "__main__":

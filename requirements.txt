@@ -4,3 +4,6 @@ feedparser
 python-dateutil
 pymupdf
 playwright
+fastapi
+uvicorn
+requests

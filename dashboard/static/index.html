@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignalDesk Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --panel: #161f3d;
+      --panel-2: #1d2952;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.14);
+      --text: #eef2ff;
+      --muted: #99a3c7;
+      --soft: #6f7aa3;
+      --accent: #5eead4;
+      --accent-2: #60a5fa;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-xs: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(96,165,250,0.12), transparent 25%),
+        radial-gradient(circle at top left, rgba(94,234,212,0.10), transparent 20%),
+        linear-gradient(180deg, #0a0f1e 0%, #0b1020 100%);
+    }
+    body { min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; color: inherit; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 28px 18px;
+      border-right: 1px solid var(--border);
+      background: rgba(10,15,30,0.8);
+      backdrop-filter: blur(10px);
+      overflow: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #07101d;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+    }
+
+    .logo-text h1 {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.1;
+    }
+
+    .logo-text p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .nav {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .nav a {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+    }
+
+    .nav a.active {
+      color: var(--text);
+      background: rgba(94,234,212,0.10);
+      border-color: rgba(94,234,212,0.22);
+    }
+
+    .side-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .side-box h2 {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .side-stat, .source-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .side-stat:last-child, .source-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.78rem;
+      border: 1px solid rgba(96,165,250,0.22);
+      background: rgba(96,165,250,0.12);
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .content {
+      padding: 28px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 74ch;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+
+    .chip strong { color: var(--text); }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-inner { padding: 20px; }
+
+    .kpi {
+      position: relative;
+      min-height: 150px;
+    }
+
+    .kpi::after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      bottom: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(94,234,212,0.18), transparent 70%);
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--soft);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kpi-value {
+      margin: 0;
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .kpi-sub {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 28ch;
+      line-height: 1.45;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .section-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 70ch;
+    }
+
+    .stats-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-stat {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .mini-stat-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .mini-stat-value {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1.4fr 220px 180px;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .field, .select {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 0 14px;
+      outline: none;
+    }
+
+    .field::placeholder { color: var(--soft); }
+
+    .field:focus, .select:focus {
+      border-color: rgba(94,234,212,0.4);
+      box-shadow: 0 0 0 3px rgba(94,234,212,0.12);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1500px;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      color: var(--soft);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0 0 14px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 16px 12px 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top;
+    }
+
+    .title-cell {
+      display: grid;
+      gap: 6px;
+      min-width: 280px;
+      max-width: 420px;
+    }
+
+    .title-link {
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .title-link:hover { color: var(--accent); }
+
+    .subline {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--warning);
+      flex: 0 0 auto;
+    }
+
+    .status-processed .dot { background: var(--success); }
+    .status-error .dot { background: var(--danger); }
+    .status-unknown .dot { background: var(--soft); }
+
+    .summary-cell {
+      min-width: 300px;
+      max-width: 460px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .score-cell, .prio-cell, .rel-cell {
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .empty {
+      padding: 22px 0;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      color: var(--soft);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1260px) {
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .filters { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .content { padding: 18px; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .hero h2 { font-size: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-mark">SD</div>
+        <div class="logo-text">
+          <h1>SignalDesk</h1>
+          <p>Monitoring dashboard</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="active" href="#overview">Overview</a>
+        <a href="#signals">Signals</a>
+      </nav>
+
+      <div class="side-box">
+        <h2>System</h2>
+        <div class="side-stat"><span>Status</span><span class="pill">Online</span></div>
+        <div class="side-stat"><span>Mode</span><span class="pill">Live</span></div>
+        <div class="side-stat"><span>Updated</span><span id="lastUpdated" class="pill">--:--</span></div>
+      </div>
+
+      <div class="side-box">
+        <h2>Top sources</h2>
+        <div id="topSources">
+          <div class="source-row"><span>Loading...</span><span class="pill">--</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero" id="overview">
+        <div>
+          <h2>Signal operations overview</h2>
+          <p>Live dashboard for your Baserow-backed monitoring workflow with AI enrichment fields, source distribution and operational status view.</p>
+        </div>
+        <div class="hero-meta">
+          <div class="chip">Dashboard <strong>active</strong></div>
+          <div class="chip">Data source <strong>live</strong></div>
+        </div>
+      </section>
+
+      <section class="grid-4">
+        <article class="card kpi">
+          <div class="card-inner">
+            <div class="eyebrow">Total articles</div>
+            <p id="totalArticles" class="kpi-value">0</p>
+            <div class="kpi-sub">All records currently available in the monitored table.</div>
+          </div>
+        </article>
+
+        <article class="card kpi">
+          <div class="card-inner">
+            <div class="eyebrow">New today</div>
+            <p id="newToday" class="kpi-value">0</p>
+            <div class="kpi-sub">Rows matching today’s publication date.</div>
+          </div>
+        </article>
+
+        <article class="card kpi">
+          <div class="card-inner">
+            <div class="eyebrow">Processed</div>
+            <p id="processedCount" class="kpi-value">0</p>
+            <div class="kpi-sub">Items already processed or clearly marked as completed.</div>
+          </div>
+        </article>
+
+        <article class="card kpi">
+          <div class="card-inner">
+            <div class="eyebrow">Active sources</div>
+            <p id="activeSources" class="kpi-value">0</p>
+            <div class="kpi-sub">Distinct source count currently present in the live feed.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid-2" id="signals">
+        <article class="card">
+          <div class="card-inner">
+            <div class="section-head">
+              <div>
+                <h3>Article feed</h3>
+                <p>Search, filter and inspect live articles including relevance, priority, category and summary.</p>
+              </div>
+            </div>
+
+            <div class="filters">
+              <input id="searchInput" class="field" type="text" placeholder="Search title, source, summary, tags or URL..." />
+              <select id="sourceFilter" class="select">
+                <option value="">All sources</option>
+              </select>
+              <select id="statusFilter" class="select">
+                <option value="">All statuses</option>
+                <option value="processed">Processed</option>
+                <option value="unknown">Unknown</option>
+                <option value="error">Error</option>
+              </select>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Source</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Relevance</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                    <th>Summary</th>
+                    <th>Tags</th>
+                    <th>Link</th>
+                  </tr>
+                </thead>
+                <tbody id="articlesTable">
+                  <tr><td colspan="11" class="empty">Loading data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="section-head">
+              <div>
+                <h3>Quick stats</h3>
+                <p>Summaries calculated from the loaded enrichment fields.</p>
+              </div>
+            </div>
+            <div class="stats-list" id="quickStats">
+              <div class="mini-stat">
+                <span class="mini-stat-label">Loading...</span>
+                <span class="mini-stat-value">--</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="footer-note">
+        SignalDesk currently renders live data from your local API and shows enrichment fields from Baserow when they are available.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let allArticles = [];
+
+    function decodeBrokenUtf8(text) {
+      if (!text || typeof text !== "string") return text || "";
+      if (!/[ÃÄÖÜäöüß]/.test(text)) return text;
+      try {
+        return decodeURIComponent(escape(text));
+      } catch {
+        return text;
+      }
+    }
+
+    function normalizeStatus(status) {
+      if (status === true) return { key: "processed", label: "Processed", cls: "status-processed" };
+      if (status === false || status === null || status === "") return { key: "unknown", label: "Unknown", cls: "status-unknown" };
+
+      const raw = String(status).trim();
+      const s = raw.toLowerCase();
+
+      if (["processed", "done", "completed", "complete", "analyzed", "analysed", "true"].includes(s)) {
+        return { key: "processed", label: raw, cls: "status-processed" };
+      }
+      if (["error", "failed", "failure"].includes(s)) {
+        return { key: "error", label: raw, cls: "status-error" };
+      }
+      return { key: "unknown", label: raw || "Unknown", cls: "status-unknown" };
+    }
+
+    function formatDate(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return date.toLocaleDateString("de-DE", { year: "numeric", month: "short", day: "2-digit" });
+    }
+
+    function textValue(value, fallback = "—") {
+      if (value === null || value === undefined || value === "") return fallback;
+      return decodeBrokenUtf8(String(value));
+    }
+
+    function countBySource(items) {
+      const map = new Map();
+      items.forEach(item => {
+        const source = textValue(item.source, "Unknown");
+        map.set(source, (map.get(source) || 0) + 1);
+      });
+      return [...map.entries()].sort((a, b) => b[1] - a[1]);
+    }
+
+    function updateTopSources(items) {
+      const container = document.getElementById("topSources");
+      const top = countBySource(items).slice(0, 6);
+
+      if (!top.length) {
+        container.innerHTML = `<div class="source-row"><span>No sources</span><span class="pill">0</span></div>`;
+        return;
+      }
+
+      container.innerHTML = top.map(([source, count]) => `
+        <div class="source-row">
+          <span>${source}</span>
+          <span class="pill">${count}</span>
+        </div>
+      `).join("");
+    }
+
+    function updateQuickStats(items) {
+      const container = document.getElementById("quickStats");
+
+      const processed = items.filter(item => normalizeStatus(item.status).key === "processed").length;
+      const unknown = items.filter(item => normalizeStatus(item.status).key === "unknown").length;
+      const errors = items.filter(item => normalizeStatus(item.status).key === "error").length;
+      const withSummary = items.filter(item => item.summary).length;
+      const withScore = items.filter(item => item.score).length;
+      const withPriority = items.filter(item => item.priority).length;
+
+      const stats = [
+        ["Visible rows", items.length],
+        ["Processed rows", processed],
+        ["Unknown status", unknown],
+        ["Error status", errors],
+        ["Rows with summary", withSummary],
+        ["Rows with score", withScore],
+        ["Rows with priority", withPriority],
+      ];
+
+      container.innerHTML = stats.map(([label, value]) => `
+        <div class="mini-stat">
+          <span class="mini-stat-label">${label}</span>
+          <span class="mini-stat-value">${value}</span>
+        </div>
+      `).join("");
+    }
+
+    function populateSourceFilter(items) {
+      const select = document.getElementById("sourceFilter");
+      const current = select.value;
+
+      const sources = [...new Set(items.map(item => textValue(item.source, "Unknown")))].sort((a, b) => a.localeCompare(b));
+
+      select.innerHTML = `<option value="">All sources</option>` +
+        sources.map(source => `<option value="${source}">${source}</option>`).join("");
+
+      select.value = current;
+    }
+
+    function renderTable(items) {
+      const tbody = document.getElementById("articlesTable");
+
+      if (!items.length) {
+        tbody.innerHTML = `<tr><td colspan="11" class="empty">No matching articles found.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = items.map(item => {
+        const status = normalizeStatus(item.status);
+        const title = textValue(item.title, "Untitled");
+        const source = textValue(item.source, "Unknown");
+        const date = formatDate(item.date);
+        const url = item.url || "";
+        const priority = textValue(item.priority);
+        const relevance = textValue(item.relevance);
+        const category = textValue(item.category);
+        const score = textValue(item.score);
+        const summary = textValue(item.summary);
+        const tags = textValue(item.tags);
+
+        return `
+          <tr>
+            <td>
+              <div class="title-cell">
+                ${url
+                  ? `<a class="title-link" href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>`
+                  : `<span class="title-link">${title}</span>`
+                }
+                <div class="subline">${url ? textValue(url, "No URL available") : "No URL available"}</div>
+              </div>
+            </td>
+            <td><span class="badge">${source}</span></td>
+            <td class="subline">${date || "—"}</td>
+            <td>
+              <span class="badge ${status.cls}">
+                <span class="dot"></span>
+                ${status.label}
+              </span>
+            </td>
+            <td class="prio-cell">${priority}</td>
+            <td class="rel-cell">${relevance}</td>
+            <td>${category}</td>
+            <td class="score-cell">${score}</td>
+            <td class="summary-cell">${summary}</td>
+            <td class="summary-cell">${tags}</td>
+            <td>
+              ${url
+                ? `<a class="badge" href="${url}" target="_blank" rel="noopener noreferrer">Open</a>`
+                : `<span class="badge">No link</span>`
+              }
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function getFilteredArticles() {
+      const search = document.getElementById("searchInput").value.trim().toLowerCase();
+      const source = document.getElementById("sourceFilter").value;
+      const status = document.getElementById("statusFilter").value;
+
+      return allArticles.filter(item => {
+        const haystack = [
+          textValue(item.title, ""),
+          textValue(item.source, ""),
+          textValue(item.summary, ""),
+          textValue(item.tags, ""),
+          textValue(item.url, "")
+        ].join(" ").toLowerCase();
+
+        const itemSource = textValue(item.source, "Unknown");
+        const normalizedStatus = normalizeStatus(item.status).key;
+
+        const matchesSearch = !search || haystack.includes(search);
+        const matchesSource = !source || itemSource === source;
+        const matchesStatus = !status || normalizedStatus === status;
+
+        return matchesSearch && matchesSource && matchesStatus;
+      });
+    }
+
+    function applyFilters() {
+      const filtered = getFilteredArticles();
+      renderTable(filtered.slice(0, 50));
+      updateQuickStats(filtered);
+    }
+
+    async function loadDashboard() {
+      const [overview, articlesResp] = await Promise.all([
+        fetch("/api/overview").then(r => r.json()),
+        fetch("/api/articles").then(r => r.json())
+      ]);
+
+      allArticles = articlesResp.results || [];
+
+      document.getElementById("totalArticles").textContent = overview.totalArticles ?? allArticles.length;
+      document.getElementById("newToday").textContent = overview.newToday ?? 0;
+      document.getElementById("processedCount").textContent = overview.processed ?? 0;
+      document.getElementById("activeSources").textContent = overview.activeSources ?? new Set(allArticles.map(a => a.source)).size;
+      document.getElementById("lastUpdated").textContent = new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+
+      populateSourceFilter(allArticles);
+      updateTopSources(allArticles);
+      applyFilters();
+
+      document.getElementById("searchInput").addEventListener("input", applyFilters);
+      document.getElementById("sourceFilter").addEventListener("change", applyFilters);
+      document.getElementById("statusFilter").addEventListener("change", applyFilters);
+    }
+
+    loadDashboard().catch(err => {
+      console.error(err);
+      document.getElementById("articlesTable").innerHTML =
+        `<tr><td colspan="11" class="empty">Fehler beim Laden der Daten. Bitte API und Konsole prüfen.</td></tr>`;
+    });
+  </script>
+</body>
+</html>
