@@ -46,6 +46,11 @@ At a high level, the workflow looks like this:
 
 The goal was not just to scrape pages, but to create a workflow that turns raw updates into something that can actually be reviewed and acted on.
 
+## Dashboard screenshot
+
+![n8n workflow](dashboardscreenshot.png)
+
+
 ## Tech stack
 
 This project combines several tools and ideas I wanted to connect in a practical way:
@@ -107,6 +112,24 @@ SignalDesk/
     ├── output/
     └── log/
 ```
+
+## n8n workflow
+
+I use n8n as a lightweight orchestration layer for scheduled review and enrichment tasks.
+
+Current workflow:
+1. A Schedule Trigger starts the workflow automatically.
+2. JavaScript code prepares or reshapes incoming records.
+3. A Filter step keeps only relevant items for further processing.
+4. Existing table rows are retrieved for lookup or matching.
+5. A language model generates or refines text output.
+6. The processed result is written back by updating the corresponding row.
+
+This workflow demonstrates how I combine scheduled automation, custom transformation logic, filtering, table operations, and AI-assisted enrichment in one practical pipeline.
+
+## Workflow screenshot
+
+![n8n workflow](n8nworkflow.png)
 
 ## How I use it
 
