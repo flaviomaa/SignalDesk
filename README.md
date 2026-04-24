@@ -4,6 +4,8 @@ SignalDesk is a project I built to monitor regulatory, privacy, AI-policy, and c
 
 The idea behind it was simple: instead of checking many different institutional websites manually, I wanted a system that collects relevant updates automatically, normalizes them into a common format, and prepares them for review, filtering, prioritization, and dashboard use.
 
+A central part of the project is AI-assisted enrichment: in the n8n workflow, OpenAI-based processing is used to support relevance evaluation, text refinement, and downstream review preparation.
+
 ## Project goal
 
 With SignalDesk, I wanted to build a practical monitoring pipeline for legal, regulatory, and cybersecurity signals.
@@ -13,8 +15,9 @@ The project focuses on:
 - transforming heterogeneous source material into a structured format
 - enriching items with summaries, metadata, and prioritization
 - preparing the data for downstream processing in tools like Baserow and n8n
+- demonstrating how AI-assisted automation can support structured monitoring workflows
 
-For me, this project is mainly a hands-on demonstration of how I approach automation, information pipelines, and structured monitoring workflows.
+For me, this project is mainly a hands-on demonstration of how I approach automation, information pipelines, AI-assisted enrichment, and structured monitoring workflows.
 
 ## What it covers
 
@@ -41,15 +44,15 @@ At a high level, the workflow looks like this:
 2. Store source-specific outputs in structured files
 3. Normalize records into a shared schema
 4. Enrich entries with summaries, categories, tags, and relevance metadata
-5. Deduplicate and prepare the result for downstream review workflows
-6. Use the cleaned data in dashboard or table-based environments
+5. Use AI-assisted processing in n8n to support filtering, review preparation, and prioritization
+6. Deduplicate and prepare the result for downstream review workflows
+7. Use the cleaned data in dashboard or table-based environments
 
 The goal was not just to scrape pages, but to create a workflow that turns raw updates into something that can actually be reviewed and acted on.
 
 ## Dashboard screenshot
 
-![n8n workflow](docs\dashboardscreenshot.png)
-
+![Dashboard screenshot](docs/dashboardscreenshot.png)
 
 ## Tech stack
 
@@ -61,6 +64,7 @@ This project combines several tools and ideas I wanted to connect in a practical
 - JSON-based intermediate outputs
 - Baserow for structured review tables
 - n8n for orchestration and automation workflows
+- OpenAI via n8n for relevance-related enrichment and text processing
 - Docker for local workflow tooling
 
 ## Example output structure
@@ -111,75 +115,3 @@ SignalDesk/
     ├── scraper_hessen.py
     ├── output/
     └── log/
-```
-
-## n8n workflow
-
-I use n8n as a lightweight orchestration layer for scheduled review and enrichment tasks.
-
-Current workflow:
-1. A Schedule Trigger starts the workflow automatically.
-2. JavaScript code prepares or reshapes incoming records.
-3. A Filter step keeps only relevant items for further processing.
-4. Existing table rows are retrieved for lookup or matching.
-5. A language model generates or refines text output.
-6. The processed result is written back by updating the corresponding row.
-
-This workflow demonstrates how I combine scheduled automation, custom transformation logic, filtering, table operations, and AI-assisted enrichment in one practical pipeline.
-
-## Workflow screenshot
-
-![n8n workflow](docs\n8nworkflow.png)
-
-## How I use it
-
-I mainly use SignalDesk as a monitoring and processing workspace.
-
-Typical usage includes:
-- running multiple scrapers
-- collecting fresh source updates
-- preparing results for review
-- pushing cleaned items into a structured table workflow
-- experimenting with automation in n8n
-
-## Running the project
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run all scrapers:
-
-```bash
-python run_scrapers.py all
-```
-
-Depending on the local setup, additional processing steps can be run afterwards, for example for deduplication or pushing data into a table-based workflow.
-
-## Why this project matters to me
-
-I built SignalDesk as a practical project to combine topics that interest me most:
-
-- automation
-- regulatory monitoring
-- cybersecurity
-- privacy
-- AI governance
-- structured data workflows
-
-It reflects how I like to work: taking a messy real-world information problem and building a system that makes it more structured, searchable, and operational.
-
-## What this project demonstrates
-
-From a technical and practical perspective, this project demonstrates:
-
-- multi-source scraping
-- handling heterogeneous data inputs
-- data normalization
-- automation workflow thinking
-- integration of collection, processing, and review steps
-- building useful internal tooling instead of isolated scripts
-
-For me, SignalDesk is less about a single script and more about designing a complete monitoring workflow.
