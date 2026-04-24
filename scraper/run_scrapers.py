@@ -1,9 +1,13 @@
+from pathlib import Path
 import argparse
 import subprocess
 import sys
 import os
 import json
 from datetime import datetime
+
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
 
 SCRAPER_MAP = {
     "bmj": "scraper_bmj.py",
@@ -28,33 +32,41 @@ GROUPS = {
     ],
 }
 
-OUTPUT_DIR = "output"
-AIACT_FILE = "aiact_all_articles.json"
+OUTPUT_DIR = PROJECT_ROOT / "output"
+AIACT_FILE = PROJECT_ROOT / "aiact_all_articles.json"
+
 
 def run_script(script_name):
+    script_path = BASE_DIR / script_name
     try:
-        print(f"\n[START] Starte {script_name}...")
+        print(f"\n[START] Starte {script_path.name}...")
 
-        # Umgebung für UTF-8-Ausgabe setzen
         env = os.environ.copy()
         env["PYTHONUTF8"] = "1"
         env["PYTHONIOENCODING"] = "utf-8"
 
         result = subprocess.run(
-            [sys.executable, script_name],
+            [sys.executable, str(script_path)],
             capture_output=True,
             text=True,
-            env=env
+            env=env,
+            cwd=str(PROJECT_ROOT)
         )
 
         if result.returncode == 0:
-            print(f"[OK] Erfolgreich: {script_name}")
+            print(f"[OK] Erfolgreich: {script_path.name}")
             if result.stdout:
                 print(result.stdout)
         else:
-            print(f"[FEHLER] {script_name}:\n{result.stderr}")
+            print(f"[FEHLER] {script_path.name}:")
+            if result.stdout:
+                print(result.stdout)
+            if result.stderr:
+                print(result.stderr)
+
     except Exception as e:
-        print(f"[FEHLER] Konnte {script_name} nicht starten: {e}")
+        print(f"[FEHLER] Konnte {script_path.name} nicht starten: {e}")
+
 
 def resolve_targets(targets):
     resolved = []
@@ -67,6 +79,7 @@ def resolve_targets(targets):
         else:
             print(f"[WARNUNG] Unbekannter Task: {t}")
     return resolved
+
 
 def write_entry(f, source_name, entry, index):
     f.write("=" * 120 + "\n")
@@ -83,6 +96,7 @@ def write_entry(f, source_name, entry, index):
     f.write("\nCONTENT:\n")
     f.write(entry.get("content", "Kein Inhalt"))
     f.write("\n\n")
+
 
 def process_json_file(filepath, f):
     try:
@@ -106,27 +120,29 @@ def process_json_file(filepath, f):
     except Exception as e:
         f.write(f"[FEHLER] Konnte {filepath} nicht lesen: {e}\n\n")
 
+
 def export_results_to_txt():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    export_file = f"scraper_results_export_{timestamp}.txt"
+    export_file = PROJECT_ROOT / f"scraper_results_export_{timestamp}.txt"
 
     with open(export_file, "w", encoding="utf-8") as f:
         f.write("SCRAPER RESULTS EXPORT\n")
         f.write(f"Erstellt am: {datetime.now()}\n\n")
 
-        if os.path.isdir(OUTPUT_DIR):
+        if OUTPUT_DIR.is_dir():
             for filename in sorted(os.listdir(OUTPUT_DIR)):
                 if filename.endswith(".json"):
-                    process_json_file(os.path.join(OUTPUT_DIR, filename), f)
+                    process_json_file(OUTPUT_DIR / filename, f)
         else:
             f.write(f"[INFO] Ordner '{OUTPUT_DIR}' nicht gefunden.\n\n")
 
-        if os.path.exists(AIACT_FILE):
+        if AIACT_FILE.exists():
             process_json_file(AIACT_FILE, f)
         else:
             f.write(f"[INFO] Datei '{AIACT_FILE}' nicht gefunden.\n\n")
 
-    print(f"[OK] TXT-Export erstellt: {export_file}")
+    print(f"[OK] TXT-Export erstellt: {export_file.name}")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scraper-Buendelstarter")
