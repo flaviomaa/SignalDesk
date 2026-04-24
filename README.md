@@ -32,7 +32,7 @@ SignalDesk currently includes sources from different regulatory and cybersecurit
 - Berlin DPA
 - Hessen
 - EUR-Lex
-- AI Act related sources
+- AI Act-related sources
 
 This gives the project a mix of EU-level, German federal, and German state-level monitoring sources.
 
@@ -115,3 +115,75 @@ SignalDesk/
     ├── scraper_hessen.py
     ├── output/
     └── log/
+```
+
+## n8n workflow
+
+I use n8n as a lightweight orchestration layer for scheduled review and enrichment tasks.
+
+Current workflow:
+1. A Schedule Trigger starts the workflow automatically.
+2. JavaScript code prepares or reshapes incoming records.
+3. A Filter step keeps only relevant items for further processing.
+4. Existing table rows are retrieved for lookup or matching.
+5. A language model generates or refines text output.
+6. The processed result is written back by updating the corresponding row.
+
+This workflow demonstrates how I combine scheduled automation, custom transformation logic, filtering, table operations, and AI-assisted enrichment in one practical pipeline.
+
+## Workflow screenshot
+
+![n8n workflow](docs/n8nworkflow.png)
+
+## How I use it
+
+I mainly use SignalDesk as a monitoring and processing workspace.
+
+Typical usage includes:
+- running multiple scrapers
+- collecting fresh source updates
+- preparing results for review
+- pushing cleaned items into a structured table workflow
+- experimenting with automation in n8n
+
+## Running the project
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run all scrapers:
+
+```bash
+python run_scrapers.py all
+```
+
+Depending on the local setup, additional processing steps can be run afterwards, for example for deduplication or pushing data into a table-based workflow.
+
+## Why this project matters to me
+
+I built SignalDesk as a practical project to combine topics that interest me most:
+
+- automation
+- regulatory monitoring
+- cybersecurity
+- privacy
+- AI governance
+- structured data workflows
+
+It reflects how I like to work: taking a messy real-world information problem and building a system that makes it more structured, searchable, and operational.
+
+## What this project demonstrates
+
+From a technical and practical perspective, this project demonstrates:
+
+- multi-source scraping
+- handling heterogeneous data inputs
+- data normalization
+- automation workflow thinking
+- integration of collection, processing, and review steps
+- building useful internal tooling instead of isolated scripts
+
+For me, SignalDesk is less about a single script and more about designing a complete monitoring workflow.
