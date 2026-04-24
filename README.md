@@ -48,7 +48,7 @@ The goal was not just to scrape pages, but to create a workflow that turns raw u
 
 ## Dashboard screenshot
 
-![n8n workflow](dashboardscreenshot.png)
+![n8n workflow](docs\dashboardscreenshot.png)
 
 
 ## Tech stack
@@ -129,7 +129,7 @@ This workflow demonstrates how I combine scheduled automation, custom transforma
 
 ## Workflow screenshot
 
-![n8n workflow](n8nworkflow.png)
+![n8n workflow](docs\n8nworkflow.png)
 
 ## How I use it
 
