@@ -1,6 +1,6 @@
-# SignalDesk
+# ComplianceMonitoringTool
 
-SignalDesk is a project I built to monitor regulatory, privacy, AI-policy, and cybersecurity developments across multiple public sources and bring them into one structured workflow.
+ComplianceMonitoringTool is a project I built to monitor regulatory, privacy, AI-policy, and cybersecurity developments across multiple public sources and bring them into one structured workflow.
 
 The idea behind it was simple: instead of checking many different institutional websites manually, I wanted a system that collects relevant updates automatically, normalizes them into a common format, and prepares them for review, filtering, prioritization, and dashboard use.
 
@@ -8,7 +8,7 @@ A central part of the project is AI-assisted enrichment: in the n8n workflow, Op
 
 ## Project goal
 
-With SignalDesk, I wanted to build a practical monitoring pipeline for legal, regulatory, and cybersecurity signals.
+With ComplianceMonitoringTool, I wanted to build a practical monitoring pipeline for legal, regulatory, and cybersecurity signals.
 
 The project focuses on:
 - collecting updates from multiple public sources
@@ -21,7 +21,7 @@ For me, this project is mainly a hands-on demonstration of how I approach automa
 
 ## What it covers
 
-SignalDesk currently includes sources from different regulatory and cybersecurity domains, including:
+ComplianceMonitoringTool currently includes sources from different regulatory and cybersecurity domains, including:
 
 - BMJ
 - EDPB
@@ -91,7 +91,7 @@ This makes the output more useful than a simple scrape dump, because it can be f
 A simplified view of the project structure looks like this:
 
 ```text
-SignalDesk/
+ComplianceMonitoringTool/
 ├── docker-compose.yml
 ├── requirements.txt
 ├── run_scrapers.py
@@ -137,7 +137,7 @@ This workflow demonstrates how I combine scheduled automation, custom transforma
 
 ## How I use it
 
-I mainly use SignalDesk as a monitoring and processing workspace.
+I mainly use ComplianceMonitoringTool as a monitoring and processing workspace.
 
 Typical usage includes:
 - running multiple scrapers
@@ -164,7 +164,7 @@ Depending on the local setup, additional processing steps can be run afterwards,
 
 ## Why this project matters to me
 
-I built SignalDesk as a practical project to combine topics that interest me most:
+I built ComplianceMonitoringTool as a practical project to combine topics that interest me most:
 
 - automation
 - regulatory monitoring
@@ -186,4 +186,4 @@ From a technical and practical perspective, this project demonstrates:
 - integration of collection, processing, and review steps
 - building useful internal tooling instead of isolated scripts
 
-For me, SignalDesk is less about a single script and more about designing a complete monitoring workflow.
+For me, ComplianceMonitoringTool is less about a single script and more about designing a complete monitoring workflow.
